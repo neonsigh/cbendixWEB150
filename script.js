@@ -2,5 +2,11 @@
 let firstName = "Chris";
 let lastName = "Bendix";
 let yearsOfStudy = 0;
-let goal = "to complete the Programming course of study with SCCC";
+let goal = "explore software development";
+
+document.getElementByID("fName").innerHTML = firstName;
+document.getElementByID("lName").innerHTML = lastName;
+document.getElementByID("years").innerHTML = yearsOfStudy;
+document.getElementByID("goal").innerHTML = goal;
+
 </script>
