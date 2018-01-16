@@ -1,0 +1,61 @@
+/* 
+Name: Pig Latin Translator
+Author: Christopher Bendix
+Date: 11 January 2018
+*/
+
+/*
+pseudocode for program
+Prompt user for word input to translate (set input as variable named input)
+
+Set vowel variable (called vowels) equal to all vowels in all cases
+
+Set consonant variable (called consonants) to all consonants in all cases
+Check if input variable is a vowel at position one (use indexOf to search vowels variable for match) and if there is an input character at input position two. If yes, print input + "way"
+
+Check if input variable is a consonant at position one (using indexOf to search consonants variable) and check if input variable is a vowel at position two. If yes, set a new variable equal to input.slice(1)+input.slice(0,1) to shift first letter to end. Then print the variable + "ay"
+
+Check if input variable is a consonant at positions one and two (using indexOf). If yes, set a new variable equal to input.slice(2)+input.slice(0,2) to shift the first two letters to end. Then print the variable + "ay"
+
+If none of the above has resulted in a print, then print "This input can\'t be translated! Refresh the page to try again."
+*/
+
+
+<html>
+    <head>
+        <title>Shall we play a game?</title>
+    </head>
+    <body>
+        <h2>Welcome to Latin class!</h2>
+        <script type="text/javascript">    
+            var input = prompt("Enter a word!");
+
+    //       checking my work: 
+    //       console.log(input);
+
+            var vowels = 'aeiouAEIOU'
+            var consonants = 'qwrtypsdfghjklzxcvbnmQWRTYPSDFGHJKLZXCVBNM'
+
+     //        checking my work:       
+     //        console.log(vowels.indexOf(input[0]))
+     //        console.log(consonants.indexOf(input[0]))
+     //        console.log(consonants.indexOf(input[1]))
+
+            if ( vowels.indexOf(input[0]) > -1 && input[1] != null ) {
+                console.log(input + "way");
+                } else if ( consonants.indexOf(input[0]) > -1 && vowels.indexOf(input[1]) > -1 ) {
+                    var cons1 = input.slice(1)+input.slice(0,1);
+                    console.log(cons1+"ay");
+                } else if ( consonants.indexOf(input[0]) > -1 && consonants.indexOf(input[1]) > -1 ) {
+                    var cons2 = input.slice(2)+input.slice(0,2);
+                    console.log(cons2+"ay");
+                } else {
+                    console.log("This input can\'t be translated! Refresh the page to try again.")
+                } 
+
+     
+        </script>
+
+
+    </body>
+</html>
