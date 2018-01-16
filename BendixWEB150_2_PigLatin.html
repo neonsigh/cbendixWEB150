@@ -34,24 +34,24 @@ If none of the above has resulted in a print, then print "This input can\'t be t
     //       checking my work: 
     //       console.log(input);
 
-            var vowels = 'aeiouAEIOU'
-            var consonants = 'qwrtypsdfghjklzxcvbnmQWRTYPSDFGHJKLZXCVBNM'
+            var vowels = 'aeiouAEIOU';
+            var consonants = 'qwrtypsdfghjklzxcvbnmQWRTYPSDFGHJKLZXCVBNM';
 
      //        checking my work:       
-     //        console.log(vowels.indexOf(input[0]))
-     //        console.log(consonants.indexOf(input[0]))
-     //        console.log(consonants.indexOf(input[1]))
+     //        console.log(vowels.indexOf(input[0]));
+     //        console.log(consonants.indexOf(input[0]));
+     //        console.log(consonants.indexOf(input[1]));
 
             if ( vowels.indexOf(input[0]) > -1 && input[1] != null ) {
-                console.log(input + "way");
+                print(input + "way");
                 } else if ( consonants.indexOf(input[0]) > -1 && vowels.indexOf(input[1]) > -1 ) {
                     var cons1 = input.slice(1)+input.slice(0,1);
-                    console.log(cons1+"ay");
+                    print(cons1+"ay");
                 } else if ( consonants.indexOf(input[0]) > -1 && consonants.indexOf(input[1]) > -1 ) {
                     var cons2 = input.slice(2)+input.slice(0,2);
-                    console.log(cons2+"ay");
+                    print(cons2+"ay");
                 } else {
-                    console.log("This input can\'t be translated! Refresh the page to try again.")
+                    print("This input can\'t be translated! Refresh the page to try again.");
                 } 
 
      
