@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Homework #3
+    </title>
+    <style>
+        body {
+            background-color: powderblue;
+            padding-top: 40px;
+             }
+    </style>
+</head>
+
+<body>
+    <blockquote>
+    <h2>Grades</h2>
+        <script type="text/javascript"> 
+        var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+
+        var student = [];
+        var grade = [];            
+
+        var students = grades.split(", ");
+               students.sort();
+                    console.log(students);
+
+                    for (i in students) {
+                        console.log(students[i]);
+                        var students2 = students[i].split("|");
+                        console.log(students2);
+                        student.push(students2[0]);
+                        grade.push(parseInt(students2[1]));
+
+                    }
+
+                    console.log(student, "test1");
+                    console.log(grade, "test2");
+
+
+        for (i in student) {
+            document.write(student[i][0].toUpperCase() + student[i].slice(1) + " - " + grade[i] + "<br>");
+        }
+
+        var sum = 0;
+        var hiGrade = 0;
+        var loGrade = 100;
+
+                    for (var j in grade) {
+                        sum += grade[j];
+                        if (grade[j] > hiGrade) {
+                            hiGrade = grade[j];
+                        }
+
+                        if (grade[j] < loGrade) {
+                            loGrade = grade[j];
+                        }
+                    }
+
+                    document.write("<p>Total students: " + student.length + "<p>Lowest score: " + loGrade + "<br>Average score: " + sum/grade.length + "<br>Highest score: " + hiGrade);
+
+
+
+        </script>
+    </blockquote>
+</body>
+</html>
+
