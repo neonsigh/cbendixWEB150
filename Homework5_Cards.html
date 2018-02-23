@@ -1,0 +1,159 @@
+<html>
+<head></head>
+<body>
+
+
+
+<script type="text/javascript">
+
+let deck = [
+{ suite: "Hearts", value: "Ace", score: 1 }, 
+{ suite: "Hearts", value: "Two", score: 2 }, 
+{ suite: "Hearts", value: "Three", score: 3 }, 
+{ suite: "Hearts", value: "Four", score: 4 },
+{ suite: "Hearts", value: "Five", score: 5 },
+{ suite: "Hearts", value: "Six", score: 6 },
+{ suite: "Hearts", value: "Seven", score: 7 }, 
+{ suite: "Hearts", value: "Eight", score: 8 }, 
+{ suite: "Hearts", value: "Nine", score: 9 }, 
+{ suite: "Hearts", value: "Ten", score: 10 }, 
+{ suite: "Hearts", value: "Jack", score: 10 }, 
+{ suite: "Hearts", value: "Queen", score: 10 }, 
+{ suite: "Hearts", value: "King", score: 10 }, 
+{ suite: "Spades", value: "Ace", score: 1 }, 
+{ suite: "Spades", value: "Two", score: 2 },
+{ suite: "Spades", value: "Three", score: 3 },
+{ suite: "Spades", value: "Four", score: 4 },
+{ suite: "Spades", value: "Five", score: 5 },
+{ suite: "Spades", value: "Six", score: 6 },
+{ suite: "Spades", value: "Seven", score: 7 },
+{ suite: "Spades", value: "Eight", score: 8 },
+{ suite: "Spades", value: "Nine", score: 9 },
+{ suite: "Spades", value: "Ten", score: 10 },
+{ suite: "Spades", value: "Jack", score: 10 },
+{ suite: "Spades", value: "Queen", score: 10 },
+{ suite: "Spades", value: "King", score: 10 },
+{ suite: "Diamonds", value: "Ace", score: 1 },
+{ suite: "Diamonds", value: "Two", score: 2 },
+{ suite: "Diamonds", value: "Three", score: 3 },
+{ suite: "Diamonds", value: "Four", score: 4 },
+{ suite: "Diamonds", value: "Five", score: 5 },
+{ suite: "Diamonds", value: "Six", score: 6 },
+{ suite: "Diamonds", value: "Seven", score: 7 },
+{ suite: "Diamonds", value: "Eight", score: 8 },
+{ suite: "Diamonds", value: "Nine", score: 9 },
+{ suite: "Diamonds", value: "Ten", score: 10 },
+{ suite: "Diamonds", value: "Jack", score: 10 },
+{ suite: "Diamonds", value: "Queen", score: 10 },
+{ suite: "Diamonds", value: "King", score: 10 },
+{ suite: "Clubs", value: "Ace", score: 1 },
+{ suite: "Clubs", value: "Two", score: 2 },
+{ suite: "Clubs", value: "Three", score: 3 },
+{ suite: "Clubs", value: "Four", score: 4 }, 
+{ suite: "Clubs", value: "Five", score: 5 }, 
+{ suite: "Clubs", value: "Six", score: 6 },
+{ suite: "Clubs", value: "Seven", score: 7 }, 
+{ suite: "Clubs", value: "Eight", score: 8 }, 
+{ suite: "Clubs", value: "Nine", score: 9 }, 
+{ suite: "Clubs", value: "Ten", score: 10 }, 
+{ suite: "Clubs", value: "Jack", score: 10 }, 
+{ suite: "Clubs", value: "Queen", score: 10 }, 
+{ suite: "Clubs", value: "King", score: 10 } 
+]
+
+var dealt = false;
+var bjdealt = false;
+    
+var draw = function() {
+    if (dealt === false) {
+        drawcard();
+    } else {
+        redraw();
+    }
+};
+
+
+var drawcard = function() {
+hand = [];
+document.getElementById("playerhand").innerHTML="";
+document.getElementById("playerscore").innerHTML="";
+document.getElementById("broke").innerHTML="";
+Array.prototype.push.apply(deck, playerhand);
+    while (deck.length > 47) {
+        var cardnum = Math.floor(Math.random() * deck.length);
+        var card = deck[cardnum];
+        deck.splice(cardnum, 1);
+        hand.push(card);  
+        document.getElementById("hand").innerHTML+=card.value + " of " + card.suite + "<br>";
+    }
+       dealt = true;
+};
+    
+var redraw = function() {
+    document.getElementById("hand").innerHTML="";
+    Array.prototype.push.apply(deck, hand);
+    drawcard();
+};
+  
+
+
+var blackjack = function() {
+    if (bjdealt === false) {
+        blackjackdraw();
+    } else {
+        bjredraw();
+    }
+};   
+    
+var blackjackdraw = function() {
+document.getElementById("hand").innerHTML="";
+document.getElementById("playerhand").innerHTML="";
+document.getElementById("broke").innerHTML="";
+playerhand = [];
+var playerscore = 0;
+    while (playerhand.length < 3) {
+        var bjcardnum = Math.floor(Math.random() * deck.length);
+        var bjcard = deck[bjcardnum];
+        deck.splice(bjcardnum, 1);
+        playerhand.push(bjcard);
+        document.getElementById("playerhand").innerHTML+=bjcard.value + " of " + bjcard.suite + "<br>";
+        playerscore = playerscore + bjcard.score;
+        document.getElementById("playerscore").innerHTML="<p>Current player score: " + playerscore;
+        if (playerscore > 21) {
+        document.getElementById("broke").innerHTML="<p>You broke";
+   
+        }
+    };
+
+    bjdealt = true;
+};    
+    
+var bjredraw = function() {
+    Array.prototype.push.apply(deck, playerhand);
+    blackjackdraw();
+};
+
+
+
+
+    
+    </script>
+<img height="100" src="https://s.hswstatic.com/gif/how-to-play-omaha-poker-1.jpg">
+<p>
+<button onclick="draw()">Draw</button>
+<p><br>Blackjack:<p><button onclick="blackjack()">Deal</button> 
+
+<p>
+<span id="hand"></span>
+<span id="playerhand"></span> <span id="playerscore"></span>
+    
+<span id="broke"></span>
+
+
+
+
+</body>
+</html>
+
+
+
