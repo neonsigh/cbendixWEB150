@@ -2,8 +2,6 @@
 <head>
     <title>Drawing</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-
 </head>
 
 <body>
@@ -12,75 +10,74 @@
 <canvas id="jsgraphic" height=800 width=800></canvas>
     
     
-<script>
+    <script>
 
-var canvas = document.getElementById('jsgraphic');
-var ctx = canvas.getContext('2d');    
-    
-function drawSpindle() {
+    var canvas = document.getElementById('jsgraphic');
+    var ctx = canvas.getContext('2d');    
 
-ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function drawSpindle() {
 
-ctx.translate(canvas.width/2, canvas.width/2);	
-ctx.rotate(Math.PI / 180);
-ctx.translate(-canvas.width/2, -canvas.width/2);
-    
-ctx.moveTo(100, 200); 
-ctx.lineTo(500, 600); 
-ctx.stroke(); 
-    
-ctx.moveTo(100, 400);
-ctx.lineTo(500, 400);
-ctx.stroke();
-    
-ctx.moveTo(100, 600);
-ctx.lineTo(500, 200);
-ctx.stroke();
-    
-ctx.moveTo(300, 600);
-ctx.lineTo(300, 200);
-ctx.stroke();
-    
-   
-ctx.rect(100,200,400,400);
-ctx.stroke();
-ctx.scale(0.998,0.998);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-/* experimenting with offset:    
- ctx.shadowOffsetX=420;
- ctx.shadowOffsetY=0;
- ctx.shadowColor="purple";
-*/
-}
+        ctx.translate(canvas.width/2, canvas.width/2);	
+        ctx.rotate(Math.PI / 180);
+        ctx.translate(-canvas.width/2, -canvas.width/2);
 
-var startAngle = 0.0;
-var endAngle = 0.5;
+        ctx.moveTo(100, 200); 
+        ctx.lineTo(500, 600); 
+        ctx.stroke(); 
 
-function spinCircle() { 
-    ctx.beginPath();
-    ctx.arc(300, 400, 200, startAngle, endAngle*Math.PI); // 2*Math would be full circle
-    ctx.strokeStyle = "red";
-    ctx.stroke();
-    ctx.fillStyle = "blue",  0.5;
-    ctx.fill();    
-};    
- 
+        ctx.moveTo(100, 400);
+        ctx.lineTo(500, 400);
+        ctx.stroke();
 
-var animate = function() {
-    drawSpindle();
-    spinCircle(); 
-    startAngle -= 0.01;
-    endAngle -= 0.02;
-    setTimeout(animate, 30); // after 30ms run the function again
-}    
+        ctx.moveTo(100, 600);
+        ctx.lineTo(500, 200);
+        ctx.stroke();
+
+        ctx.moveTo(300, 600);
+        ctx.lineTo(300, 200);
+        ctx.stroke();
+
+
+        ctx.rect(100,200,400,400);
+        ctx.stroke();
+        ctx.scale(0.998,0.998);
+
+        /* experimenting with offset:    
+         ctx.shadowOffsetX=420;
+         ctx.shadowOffsetY=0;
+         ctx.shadowColor="purple";
+        */
+    }
+
+    var startAngle = 0.0;
+    var endAngle = 0.5;
+
+    function spinCircle() { 
+        ctx.beginPath();
+        ctx.arc(300, 400, 200, startAngle, endAngle*Math.PI); // 2*Math would be full circle
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        ctx.fillStyle = "blue",  0.5;
+        ctx.fill();    
+    };    
+
+
+    var animate = function() {
+        drawSpindle();
+        spinCircle(); 
+        startAngle -= 0.01;
+        endAngle -= 0.02;
+        setTimeout(animate, 30); // after 30ms run the function again
+    }    
+
+
+    animate();    
+
+
+    </script> 
     
- 
-animate();    
-    
-    
-</script> 
-    
-</body>
-    
+</body>    
     
 </html>
