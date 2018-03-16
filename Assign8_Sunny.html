@@ -108,24 +108,27 @@ $(document).ready(function() {
                                 } else {
                                         meridiem = " am";   
                                 }; 
-                                var datetime = day + ", " + monthname + " " + date + ", " + year + " – " + hours + ":" + minutes + meridiem;
+                                var datetime = day + ", " + monthname + " " + date + 
+                                ", " + year + " – " + hours + ":" + minutes + meridiem;
 
-                                $("#weatherData").append("<tr><td align=\"center\">"+result.list[i].weather[0].main+"<br><img src=\"http://openweathermap.org/img/w/"+result.list[i].weather[0].icon+".png\"></td><td><li>Date: "+datetime+"</li><li>Temp: "+ kelvinToF(result.list[i].main.temp)+"</li><li>Lo Temp: "+ kelvinToF(result.list[i].main.temp_min)+"</li><li>Hi Temp: "+kelvinToF(result.list[i].main.temp_max)+"</li><li>Humidity: "+result.list[i].main.humidity+"</li><li>Description: "+result.list[i].weather[0].description+"</li></td></tr><p>")};
+                                $("#weatherData").append(
+                                    "<tr><td align=\"center\">"+result.list[i].weather[0].main+
+                                    "<br><img src=\"http://openweathermap.org/img/w/"+result.list[i].weather[0].icon+
+                                    ".png\"></td><td><li>Date: "+datetime+
+                                    "</li><li>Temp: "+ kelvinToF(result.list[i].main.temp)+
+                                    "</li><li>Lo Temp: "+ kelvinToF(result.list[i].main.temp_min)+
+                                    "</li><li>Hi Temp: "+kelvinToF(result.list[i].main.temp_max)+
+                                    "</li><li>Humidity: "+result.list[i].main.humidity+
+                                    "</li><li>Description: "+result.list[i].weather[0].description+
+                                    "</li></td></tr><p>"
+                                    )};
 
-
-
-                              };
+                     };
                   };
-                  });
-
-                               
-            }});
+                });                             
+            }
     });
-        
-
-
-
-        
+});      
 </script>
     
         
